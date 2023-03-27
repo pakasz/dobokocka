@@ -75,7 +75,7 @@ function jatek(){
             }
             else{
                 momentary_nyeremeny = 0;
-                if(egyenleg-tet >=0){
+                if(egyenleg-tet >=0){ 
                     egyenleg = egyenleg - tet;
                     hazaviheto = egyenleg/2 + nyeremeny;
                     document.getElementById("szam").innerHTML = "Dobott szám: " +kockaertek;
