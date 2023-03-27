@@ -5,6 +5,7 @@ var kockaertek;
 var kor = 1;
 var tesztkor = true;
 var end = false;
+var momentary_nyeremeny = 0;
 //var form = new FormData(document.getElementById("form"));
 function jatek(){
     if(!end){   
@@ -19,19 +20,23 @@ function jatek(){
             document.getElementById("korte").innerHTML = "Tesztkör: " + kor;
             kockaertek = getRandomInt(1,7);
                 if(kockaertek >= 5){
-                    egyenleg = egyenleg;
+                    egyenleg = egyenleg - tet;
                     nyeremeny = nyeremeny + 2*tet;
+                    momentary_nyeremeny = 2*tet;
                     hazaviheto = egyenleg/2  + nyeremeny;
                     document.getElementById("szam").innerHTML = "Dobott szám: " +kockaertek;
                     document.getElementById("egyenleg").innerHTML = "Egyenleg: "+egyenleg;
                     document.getElementById("hazaviheto").innerHTML = "Hazavihető: "+ hazaviheto;
+                    document.getElementById("nyeremeny").innerHTML = "Nyert összeg: "+ momentary_nyeremeny;
                 }
                 else{
                     egyenleg = egyenleg - tet;
                     hazaviheto = egyenleg/2  + nyeremeny;
+                    momentary_nyeremeny = 0;
                     document.getElementById("szam").innerHTML = "Dobott szám: " + kockaertek;
                     document.getElementById("egyenleg").innerHTML = "Egyenleg: "+ egyenleg;
                     document.getElementById("hazaviheto").innerHTML = "Hazavihető: "+ hazaviheto;
+                    document.getElementById("nyeremeny").innerHTML = "Nyert összeg: "+ momentary_nyeremeny;
                     if(!egyenleg){
                         tesztkor = false;
                         document.getElementById("vege").innerHTML = "!"; 
@@ -58,20 +63,24 @@ function jatek(){
             document.getElementById("korte").innerHTML = "Kör: "+ (kor-2);
             kockaertek = getRandomInt(1,7);
             if(kockaertek >= 5){
-                egyenleg = egyenleg;
+                egyenleg = egyenleg - tet;
                 nyeremeny = nyeremeny + 2*tet;
                 hazaviheto = egyenleg/2 + nyeremeny;
+                momentary_nyeremeny  = tet*2;
                 document.getElementById("szam").innerHTML = "Dobott szám: " +kockaertek;
                 document.getElementById("egyenleg").innerHTML = "Egyenleg: "+egyenleg;
                 document.getElementById("hazaviheto").innerHTML = "Hazavihető: "+ hazaviheto;
+                document.getElementById("nyeremeny").innerHTML = "Nyert összeg: "+ momentary_nyeremeny;
             }
             else{
+                momentary_nyeremeny = 0;
                 if(egyenleg-tet >=0){
                     egyenleg = egyenleg - tet;
                     hazaviheto = egyenleg/2 + nyeremeny;
                     document.getElementById("szam").innerHTML = "Dobott szám: " +kockaertek;
                     document.getElementById("egyenleg").innerHTML = "Egyenleg: "+egyenleg;  
                     document.getElementById("hazaviheto").innerHTML = "Hazavihető: "+ hazaviheto;
+                    document.getElementById("nyeremeny").innerHTML = "Nyert összeg: "+ momentary_nyeremeny;
                 }
                 else if(egyenleg-tet == 0){
                     egyenleg = 0;
