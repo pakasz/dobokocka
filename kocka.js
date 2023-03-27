@@ -52,10 +52,11 @@ function jatek(){
 
 
 
-        if(!tesztkor){
+        if(!tesztkor && kor <=2){
             egyenleg = 10000;   
             nyeremeny = 0;
             hazaviheto = 0;
+            tesztkor = true;
         }
 
 
@@ -89,7 +90,7 @@ function jatek(){
             }
         }
         else if(!tesztkor){
-            document.getElementById("vege").innerHTML = "Vége a játéknak, kérlek mentsd el az elért eredményed!";
+            document.getElementById("vege").innerHTML = "Vége a játéknak, mert nincs több pénz az egyenlegén. Amennyiben szeretné újra próbálni, kérem frissítse az oldalt. Ha ez egy próba kör volt, akkor mindenképp próbálja újra a játékot";
             end = true;
         }
     }
