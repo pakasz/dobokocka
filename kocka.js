@@ -10,7 +10,7 @@ var momentary_nyeremeny = 0;
 function jatek(){
     if(!end){   
         let tet = document.getElementById("tet").value;
-        if(isNaN(tet) || tet < 100){
+        if(isNaN(tet) || tet < 100 || tet > egyenleg){
             document.getElementById("vege").innerHTML = "Hibás bemenet! A minimum tét 100, a maximum az egyenleged értéke. Bemenet csak számformátumban!";
             return;
         }
