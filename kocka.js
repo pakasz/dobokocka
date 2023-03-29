@@ -15,7 +15,7 @@ function jatek(){
             return;
         }
         document.getElementById("vege").innerHTML = " ";
-        kor++
+        kor++;
         if(egyenleg && (kor < 3) && tesztkor){
             document.getElementById("korte").innerHTML = "Tesztkör: " + kor;
             kockaertek = getRandomInt(1,7);
@@ -28,6 +28,24 @@ function jatek(){
                     document.getElementById("egyenleg").innerHTML = "Egyenleg: "+egyenleg;
                     document.getElementById("hazaviheto").innerHTML = "Hazavihető: "+ hazaviheto;
                     document.getElementById("nyeremeny").innerHTML = "Nyert összeg: "+ momentary_nyeremeny;
+                    document.getElementById("nyertosszeg").innerHTML = "Játék során nyert pénzek összege: "+ nyeremeny;
+                    if(!egyenleg){
+                        document.getElementById("vege").innerHTML = " Ön sikeresen lejátszott két próbakört. Amennyiben nem értette meg a játék dinamikáját, kérem frissítse az oldalt olvassa el a tájékoztatót, és játszon le még két próbakört. Amennyiben átlátható a játék kérem lépjen vissza a kérdőívhez és válaszoljon a következő kérdésre. Elért eredménye : Egyenleg: " + egyenleg +  " Játék során nyert pénzek összege: " + nyeremeny +" Hazavihető: " + hazaviheto;
+
+                        tesztkor = false;
+                        egyenleg = 10000; 
+                        nyeremeny = 0;
+                        hazaviheto = 0;
+                        momentary_nyeremeny = 0;
+                        kor = 3;
+                        document.getElementById("szam").innerHTML = "";
+                        document.getElementById("korte").innerHTML = "Kör: "+ (kor-2);
+                        document.getElementById("egyenleg").innerHTML = "Egyenleg: "+ egyenleg;
+                        document.getElementById("hazaviheto").innerHTML = "Hazavihető: "+ hazaviheto;
+                        document.getElementById("nyeremeny").innerHTML = "Nyert összeg: "+ momentary_nyeremeny;
+                        document.getElementById("nyertosszeg").innerHTML = "Játék során nyert pénzek összege: "+ nyeremeny;
+                        return;
+                    }   
                 }
                 else{
                     egyenleg = egyenleg - tet;
@@ -37,27 +55,44 @@ function jatek(){
                     document.getElementById("egyenleg").innerHTML = "Egyenleg: "+ egyenleg;
                     document.getElementById("hazaviheto").innerHTML = "Hazavihető: "+ hazaviheto;
                     document.getElementById("nyeremeny").innerHTML = "Nyert összeg: "+ momentary_nyeremeny;
+                    document.getElementById("nyertosszeg").innerHTML = "Játék során nyert pénzek összege: "+ nyeremeny;
                     if(!egyenleg){
+                        document.getElementById("vege").innerHTML = " Ön sikeresen lejátszott két próbakört. Amennyiben nem értette meg a játék dinamikáját, kérem frissítse az oldalt olvassa el a tájékoztatót, és játszon le még két próbakört. Amennyiben átlátható a játék kérem lépjen vissza a kérdőívhez és válaszoljon a következő kérdésre. Elért eredménye : Egyenleg: " + egyenleg +  " Játék során nyert pénzek összege: " + nyeremeny +" Hazavihető: " + hazaviheto;
                         tesztkor = false;
-                        document.getElementById("vege").innerHTML = "!"; 
+                        egyenleg = 10000; 
+                        nyeremeny = 0;
+                        hazaviheto = 0;
+                        momentary_nyeremeny = 0;
+                        kor = 3;
+                        document.getElementById("szam").innerHTML = "";
+                        document.getElementById("korte").innerHTML = "Kör: "+ (kor-2);
+                        document.getElementById("egyenleg").innerHTML = "Egyenleg: "+ egyenleg;
+                        document.getElementById("hazaviheto").innerHTML = "Hazavihető: "+ hazaviheto;
+                        document.getElementById("nyeremeny").innerHTML = "Nyert összeg: "+ momentary_nyeremeny;
+                        document.getElementById("nyertosszeg").innerHTML = "Játék során nyert pénzek összege: "+ nyeremeny;
+                        return;
                     }   
                 }
             }
-            else{
+            else if(tesztkor){
                 tesztkor = false;
-                document.getElementById("vege").innerHTML = " Ön sikeresen lejátszott két próbakört. Amennyiben nem értette meg a játék dinamikáját, kérem frissítse az oldalt olvassa el a tájékoztatót, és játszon le még két próbakört. Amennyiben átlátható a játék kérem lépjen vissza a kérdőívhez és válaszoljon a következő kérdésre.";
+                document.getElementById("vege").innerHTML = " Ön sikeresen lejátszott két próbakört. Amennyiben nem értette meg a játék dinamikáját, kérem frissítse az oldalt olvassa el a tájékoztatót, és játszon le még két próbakört. Amennyiben átlátható a játék kérem lépjen vissza a kérdőívhez és válaszoljon a következő kérdésre. Elért eredménye : Egyenleg: " + egyenleg + " Játék során nyert pénzek összege: " + nyeremeny +" Hazavihető: " + hazaviheto;
+                egyenleg = 10000; 
+                nyeremeny = 0;
+                hazaviheto = 0;
+                momentary_nyeremeny = 0;
+                kor = 3;
+                document.getElementById("szam").innerHTML = "";
+                document.getElementById("korte").innerHTML = "Kör: "+ (kor-2);
+                document.getElementById("egyenleg").innerHTML = "Egyenleg: "+ egyenleg;
+                document.getElementById("hazaviheto").innerHTML = "Hazavihető: "+ hazaviheto;
+                document.getElementById("nyeremeny").innerHTML = "Nyert összeg: "+ momentary_nyeremeny;
+                document.getElementById("nyertosszeg").innerHTML = "Játék során nyert pénzek összege: "+ nyeremeny;
+                return;
             }
         
 
 
-
-
-        if(!tesztkor && kor <=2){
-            egyenleg = 10000;   
-            nyeremeny = 0;
-            hazaviheto = 0;
-            tesztkor = true;
-        }
 
 
         if(egyenleg && (kor < 8) && (kor >2)){
@@ -72,6 +107,14 @@ function jatek(){
                 document.getElementById("egyenleg").innerHTML = "Egyenleg: "+egyenleg;
                 document.getElementById("hazaviheto").innerHTML = "Hazavihető: "+ hazaviheto;
                 document.getElementById("nyeremeny").innerHTML = "Nyert összeg: "+ momentary_nyeremeny;
+                document.getElementById("nyertosszeg").innerHTML = "Játék során nyert pénzek összege: "+ nyeremeny;
+
+                if(egyenleg-tet == 0){
+                    egyenleg = 0;
+                    end = true;
+                    document.getElementById("vege").innerHTML = "Vége a játéknak, mert nincs több pénz az egyenlegén. Amennyiben szeretné újra próbálni, kérem frissítse az oldalt. Ha ez egy próba kör volt, akkor mindenképp próbálja újra a játékot";
+                } 
+                
             }
             else{
                 momentary_nyeremeny = 0;
@@ -82,11 +125,14 @@ function jatek(){
                     document.getElementById("egyenleg").innerHTML = "Egyenleg: "+egyenleg;  
                     document.getElementById("hazaviheto").innerHTML = "Hazavihető: "+ hazaviheto;
                     document.getElementById("nyeremeny").innerHTML = "Nyert összeg: "+ momentary_nyeremeny;
-                }
-                else if(egyenleg-tet == 0){
+                    document.getElementById("nyertosszeg").innerHTML = "Játék során nyert pénzek összege: "+ nyeremeny;
+
+                    if(!egyenleg){
                     egyenleg = 0;
                     end = true;
-                }   
+                    document.getElementById("vege").innerHTML = "Vége a játéknak, mert nincs több pénz az egyenlegén. Amennyiben szeretné újra próbálni, kérem frissítse az oldalt. Ha ez egy próba kör volt, akkor mindenképp próbálja újra a játékot";
+                }  
+            } 
             }
         }
         else if(!tesztkor){
