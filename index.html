@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="kocka.js"></script>
+    <title>Dobókocka játék</title>
+    <link rel="stylesheet" href="kocka.css">
+</head>
+<body>
+    
+    <noscript>
+		<div id="warning">
+			<p>Kérlek engedélyezd a JavaScriptet, mert anélkül nem működik eme csodálatos oldal!</p>
+		</div>
+	</noscript>
+
+
+	<div id="jatekszabaly">
+		<p>Ön 10 000 forinttal kezdi a játékot, mint a belső számlájára feltöltött összeg. Erről a belső egyenlegéről a Ön tétként bármennyi összeget feltehet egy kockadobásra, de minimum 100 forintot. Amennyiben a 5-öst vagy 6-ost dob, akkor nyer, és megkapja a tétként felrakott összeg kétszeresét. Ha más számot dob (1, 2, 3, 4), akkor elveszti az összeget. Végeredményként, az Ön által elméletben hazavihető összeg a nyert összeg teljes egésze, valamint a belső számlán fennmaradt, el nem költött pénz fele. A játékot két tesztkörrel kezdi, ami során kiismerheti a játék dinamikáját. Ezt követően az éles játék öt körből áll.</p><br>
+	</div>
+
+    <p id = "korte">
+    Tesztkör: 1
+    </p><br>
+
+    <p id = "egyenleg">
+    Egyenleg: 10000
+    </p><br>
+
+    <p id = "nyertosszeg">
+    A játék során nyert pénez összege: 0
+    </p><br>
+
+    <p id = "hazaviheto">
+    Hazavihető összeg: 5000
+    </p><br>
+      
+    <p id = "szam">
+    
+
+    </p><br>
+    
+    <p id = "nyeremeny">
+    </p><br>
+    
+    <p id = "vege">
+
+    </p> <br>
+    <input id = "tet">
+    <button type="button" onclick="jatek()">Dobás a kockával</button>
+
+
+
+</body>
+</html>
